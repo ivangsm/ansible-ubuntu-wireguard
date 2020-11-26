@@ -1,0 +1,3 @@
+[all]
+
+wireguard ansible_host=<ip-address> ansible_port=<ssh-port> ansible_user=root ansible_python_interpreter=/usr/bin/python3
