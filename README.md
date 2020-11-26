@@ -14,7 +14,7 @@ git clone https://git.io/Jk9EN
 
 ### Install from Ansible Galaxy
 ```sh
-ansible-galaxy install ivangsm.ansible-ubuntu-wireguard
+ansible-galaxy install ivangsm.ansible_ubuntu_wireguard
 ```
 
 ### Run Ansible playbook
