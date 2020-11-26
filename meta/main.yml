@@ -7,7 +7,6 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - focal
-        - groovy
   galaxy_tags:
     - vpn
     - networking

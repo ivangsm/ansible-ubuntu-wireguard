@@ -27,13 +27,13 @@
 
 ## Configure system environment
 
-- name: Enable packet forwording for IPv4
-  sysctl:
-    name: net.ipv4.ip_forward
-    value: '1'
-    sysctl_set: yes
-    state: present
-    reload: yes
+# - name: Enable packet forwording for IPv4
+#   sysctl:
+#     name: net.ipv4.ip_forward
+#     value: '1'
+#     sysctl_set: yes
+#     state: present
+#     reload: yes
 
 # - name: Install FirewallD
 #   package:
@@ -94,9 +94,9 @@
 
 ## Install current kernel headers Ubuntu
 
-- name: Install kernel headers Ubuntu
-  shell: apt install -y linux-headers-`uname -r`
-  when: ansible_os_family == 'Debian'
+# - name: Install kernel headers Ubuntu
+#   shell: apt install -y linux-headers-`uname -r`
+#   when: ansible_os_family == 'Debian'
 
 ##  Allow WireGuard service, add network interface on firewall and enable masquerading
 
@@ -126,15 +126,15 @@
 
 ## Enable WireGuard kernel module and start service
 
-- name: Enable WireGuard kernel module
-  modprobe:
-    name: wireguard
-    state: present
-  register: wireguard_module_enabled
-  until: wireguard_module_enabled is succeeded
-  retries: 10
-  delay: 10
-  failed_when: wireguard_module_enabled is failure
+# - name: Enable WireGuard kernel module
+#   modprobe:
+#     name: wireguard
+#     state: present
+#   register: wireguard_module_enabled
+#   until: wireguard_module_enabled is succeeded
+#   retries: 10
+#   delay: 10
+#   failed_when: wireguard_module_enabled is failure
 
 - name: Start and enable WireGuard service
   service:
