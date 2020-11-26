@@ -1,6 +1,6 @@
 ---
-- hosts: "{{hosts_group|default('all')}}"
+- hosts: "{{ hosts_group | default('all') }}"
   vars_files:
     - "vars/main.yml"
   roles:
-    - "{{role_name|default('ivangsm.ansible_ubuntu_wireguard')}}"
+    - "{{ role_name | default('ivangsm.ansible_ubuntu_wireguard') }}"
