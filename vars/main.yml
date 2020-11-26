@@ -3,4 +3,4 @@
 ###########################
 
 wireguard_interface_ip: "10.0.0.1/24" # IPADDR/PREFIX
-wireguard_port: "51910"
+wireguard_port: "69420"
