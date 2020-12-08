@@ -2,9 +2,9 @@
 ## WireGuard Server Vars ##
 ###########################
 
-wireguard_interface_ip: "10.0.0.1/24" # IPADDR/PREFIX (Different of your own subnets)
-wireguard_port: "61234"
-wireguard_dns: "1.1.1.1" # Use cloudflare DNS
+wg_interface_ip: "10.0.0.1/24" # IPADDR/PREFIX (Different of your own subnets)
+wg_port: "61234"
+wg_dns: "1.1.1.1" # Use cloudflare DNS
 
 wg_client_public_key: ""
 wg_client_ip: "10.0.0.2/32" # Always end with /32
