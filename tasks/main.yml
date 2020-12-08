@@ -18,7 +18,6 @@
   raw: test -e /usr/sbin/resolvconf || (apt install -y resolvconf)
   changed_when: false
 
-
 ## Install Wireguard
 
 - name: Install WireGuard
@@ -35,7 +34,9 @@
     state: directory
 
 - name: Generate WireGuard private and public keys
-  shell: umask 077 && wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
+  shell: |
+    set -o pipefail
+    umask 077 && wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
   changed_when: false
 
 - name: Register WireGuard private key as a variable
