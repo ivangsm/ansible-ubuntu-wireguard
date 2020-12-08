@@ -4,3 +4,4 @@
 
 wireguard_interface_ip: "10.0.0.1/24" # IPADDR/PREFIX
 wireguard_port: "61234"
+wireguard_dns: "1.1.1.1" # Use cloudflare DNS
