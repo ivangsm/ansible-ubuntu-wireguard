@@ -5,14 +5,19 @@
 ---
 ## Install WireGuard prerequests for Ubuntu
 
-- name: Install Python 2 if not exist
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-  changed_when: false
-
 - name: Upgrade system packages on Ubuntu
   apt:
     upgrade: dist
     update_cache: yes
+
+- name: Install Python 2 if not exist
+  raw: test -e /usr/bin/python || (apt install -y python-minimal)
+  changed_when: false
+
+- name: Install resolvconf if not exist
+  raw: test -e /usr/sbin/resolvconf || (apt install -y resolvconf)
+  changed_when: false
+
 
 ## Install Wireguard
 
@@ -30,7 +35,7 @@
     state: directory
 
 - name: Generate WireGuard private and public keys
-  shell: set -o pipefail && umask 077 && wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
+  shell: umask 077 && wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
   changed_when: false
 
 - name: Register WireGuard private key as a variable
