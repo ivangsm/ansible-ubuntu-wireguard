@@ -3,7 +3,7 @@
 ############################
 
 ---
-## Install WireGuard prerequests for Ubuntu
+# Install WireGuard prerequests for Ubuntu
 
 - name: Upgrade system packages on Ubuntu
   apt:
@@ -18,7 +18,16 @@
   raw: test -e /usr/sbin/resolvconf || (apt install -y resolvconf)
   changed_when: false
 
-## Install Wireguard
+# Set ip forwarding on in /proc and in the sysctl file and reload if necessary
+
+- sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+# Install Wireguard
 
 - name: Install WireGuard
   apt:
@@ -26,7 +35,7 @@
     state: latest
     install_recommends: no
 
-## Configure WireGuard
+# Configure WireGuard
 
 - name: Create WireGuard configurations directory
   file:
