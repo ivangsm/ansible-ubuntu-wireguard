@@ -1,5 +1,9 @@
 [Interface]
 Address = {{ wireguard_interface_ip }}
+DNS = {{ wireguard_dns }}
 ListenPort = {{ wireguard_port }}
 PrivateKey = {{ wg_privatekey['content'] | b64decode }}
-DNS = {{ wireguard_dns }}
+
+[Peer]
+PublicKey = {{ wg_client_public_key }}
+AllowedIPs = {{ wg_client_ip }}
