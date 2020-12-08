@@ -37,7 +37,8 @@
   shell: |
     set -o pipefail
     umask 077 && wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
-  changed_when: false
+  args:
+    executable: /bin/bash
 
 - name: Register WireGuard private key as a variable
   slurp:
